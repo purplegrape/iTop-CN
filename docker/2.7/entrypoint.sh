@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
-set -e -x
+if [ ! -d /data/itop ];then
+  rsync -aqu /usr/src/itop/ /data/itop/
+  mkdir -p /data/itop/{conf,data,log,env-production,env-production-build,env-test,env-test-build}
+  chown -R www-data:www-data /data/itop/{conf,data,log,env-production,env-production-build,env-test,env-test-build}
+fi
 
-DST=/data/iTop
-if [ ! -d $DST ];then
-  unzip -q -n -d $DST /opt/iTop-2.7.zip
-  mkdir -p $DST/web/{conf,data,env-production,env-production-build,log}
-  chown -R www-data.www-data $DST/web/{conf,data,env-production,env-production-build,log}
-  ln -sf $DST/web /var/www/html
+if [ ! -L /var/www/html ];then
+  rm -rf /var/www/html
+  ln -sf /data/itop /var/www/html
 fi
 
 exec $@

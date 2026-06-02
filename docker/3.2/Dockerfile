@@ -5,6 +5,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 RUN wget --no-check-certificate https://sourceforge.net/projects/itop/files/itop/3.2.1/iTop-3.2.1-16429.zip/download -O /iTop-3.2.zip
 RUN unzip -q -d /usr/src /iTop-3.2.zip
 RUN mv /usr/src/web /usr/src/itop
+RUN chown root:root /usr/src/itop ;\
+    find /usr/src/itop -type f -exec chmod 644 {} \; ;\
+    find /usr/src/itop -type d -exec chmod 755 {} \;
 
 FROM docker.io/library/ubuntu:22.04
 LABEL org.opencontainers.image.title=iTop \

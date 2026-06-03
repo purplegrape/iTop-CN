@@ -34,7 +34,7 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ env.REGISTRY }}/${{ github.actor }}/${{ github.repository }}:${{ env.VERSION }}
+            ${{ env.REGISTRY }}/${{ github.repository }}:${{ env.VERSION }}
           outputs: |
             type=image,compression=zstd,force-compression=true
           cache-from: type=gha

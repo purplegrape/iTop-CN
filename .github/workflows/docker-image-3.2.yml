@@ -1,10 +1,12 @@
 name: Docker Image CI for itop-cn:3.2
 
 on:
+  push:
+    branches: ["main"]
   workflow_dispatch:
+
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: itop-cn
   VERSION: 3.2
 
 jobs:
@@ -34,6 +36,8 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+            ${{ env.REGISTRY }}/${{ github.actor }}/${{ github.repository }}:${{ env.VERSION }}
           outputs: |
             type=image,compression=zstd,force-compression=true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

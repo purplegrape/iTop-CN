@@ -2,7 +2,7 @@
 FROM docker.io/library/ubuntu:20.04 AS stage
 RUN DEBIAN_FRONTEND=noninteractive apt update && \
     DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends wget unzip tar gzip
-RUN wget --no-check-certificate https://sourceforge.net/projects/itop/files/itop/2.7.13/iTop-2.7.13-18098.zip/download -O /opt/iTop-2.7.zip
+RUN wget --no-check-certificate https://sourceforge.net/projects/itop/files/itop/2.7.13/iTop-2.7.13-18098.zip/download -O /iTop-2.7.zip
 RUN unzip -q -d /usr/src /iTop-2.7.zip
 RUN mv /usr/src/web /usr/src/itop; chown -R root:root /usr/src/itop
 

@@ -18,12 +18,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Checkout itop-dev branch
+      - name: Checkout itop develop branch
         uses: actions/checkout@v6
         with:
           repository: 'Combodo/iTop'
           path: 'docker/dev/itop'
           ref: 'develop'
+
+      - name: List files
+        run: |
+          pwd
+          ls -la 
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4

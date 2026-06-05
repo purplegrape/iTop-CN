@@ -44,8 +44,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v7
         with:
-          context: "{{defaultContext}}:docker/dev"
-          file: ./Dockerfile
+          context: ./docker/dev
+          file: ./docker/dev/Dockerfile
           platforms: linux/amd64
           push: true
           tags: |

@@ -1,0 +1,2 @@
+# Ensure all text files are checked out with LF on all platforms
+* text=auto eol=lf

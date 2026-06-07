@@ -8,6 +8,8 @@ LABEL org.opencontainers.image.title=iTop \
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y apache2 libapache2-mod-php8.3 php8.3-cli php8.3-opcache php8.3-curl php8.3-gd php8.3-intl php8.3-mbstring php8.3-mysql php8.3-ldap php8.3-xml php8.3-soap php8.3-zip php-apcu graphviz mysql-client curl rsync tzdata && \
     DEBIAN_FRONTEND=noninteractive apt-get autoclean && \
+    a2enmod headers && a2enmod expires && a2enmod deflate && \
+    a2dismod mpm_event && a2dismod authz_user && a2dismod mod_authn_file && \
     rm -rf /var/lib/apt /usr/share/perl /var/www/html
 
 RUN unlink /etc/apache2/conf-enabled/other-vhosts-access-log.conf && \

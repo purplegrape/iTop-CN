@@ -29,8 +29,8 @@ jobs:
         run: |
           pwd
           ls -la
-          ls -la docker/dev
-          rm -rf docker/dev/itop/{.doc|.git|.github|.idea|.make|test}
+          ls -la docker/dev/itop/
+          rm -rf docker/dev/itop/{.doc,.git,.github,.idea,.make,test}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4

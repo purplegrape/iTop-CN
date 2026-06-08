@@ -30,7 +30,8 @@ jobs:
           pwd
           ls -la
           ls -la docker/dev/itop/
-          rm -rf docker/dev/itop/{.doc,.git,.github,.idea,.make,test}
+          rm -rf docker/dev/itop/.*
+          rm -rf docker/dev/itop/tests
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4

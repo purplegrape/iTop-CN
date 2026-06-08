@@ -12,9 +12,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 RUN a2enmod headers ;\
     a2enmod expires ;\
     a2enmod deflate ;\
-    a2dismod mpm_event ;\
-    a2dismod authz_user ;\
-    a2dismod mod_authn_file ;\
     rm -rf /var/lib/apt /usr/share/perl /var/www/html
 
 RUN unlink /etc/apache2/conf-enabled/other-vhosts-access-log.conf && \

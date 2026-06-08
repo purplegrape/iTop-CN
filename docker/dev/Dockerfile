@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
 FROM docker.io/library/ubuntu:24.04
 LABEL org.opencontainers.image.title=iTop \
-      org.opencontainers.image.version=3.2 \
-      org.opencontainers.image.description="iTop-3.2 & ubuntu-24.04 & apache-2.4 & php-8.3" \
+      org.opencontainers.image.version=3.3 \
+      org.opencontainers.image.description="iTop-3.3 & ubuntu-24.04 & apache-2.4 & php-8.3" \
       org.opencontainers.image.authors="purplegrape4@gmail.com"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \

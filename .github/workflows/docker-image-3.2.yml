@@ -5,6 +5,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
+  NAME:     itop
   VERSION: 3.2
 
 jobs:
@@ -35,8 +36,8 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ${{ env.REGISTRY }}/${{ github.repository }}:${{ env.VERSION }}
-            ${{ env.REGISTRY }}/${{ github.repository }}:latest
+            ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.NAME }}:${{ env.VERSION }}
+            ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.NAME }}:latest
           outputs: |
             type=image,compression=zstd,force-compression=true
           cache-from: type=gha

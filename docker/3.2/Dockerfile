@@ -38,7 +38,7 @@ ADD --chmod=755 entrypoint.sh /
 
 VOLUME [ "/data" ]
 ENTRYPOINT [ "/entrypoint.sh" ]
-CMD [ "/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD [ "apache2ctl", "-D", "FOREGROUND"]
 EXPOSE 8080/tcp
 
 HEALTHCHECK --interval=30s CMD curl -sf http://127.0.0.1:8080/images/back.png || exit 1
